@@ -1,5 +1,7 @@
 # simulation of a racquetball game
 
+from random import random
+
 def main():
     printIntro()
     probA, probB, n = getInputs()
@@ -21,9 +23,9 @@ def getInputs():
 def simNGames(n, probA, probB):
     winsA= winsB = 0
     for i in range (n):
-        scoreA,ScoreB = simOneGame(probA,probB)
+        scoreA,scoreB = simOneGame(probA,probB)
         if scoreA> scoreB:
-            winsA = winssA+1
+            winsA = winsA+1
         else:
             winsB = winsB+1
     return winsA, winsB
@@ -33,7 +35,7 @@ def simOneGame(probA, probB):
     serving = "A"
     scoreA = 0
     scoreB = 0
-    while not gameOver (scoreA,ScoreB):
+    while not gameOver (scoreA,scoreB):
         if serving == "A":
             if random()<probA:
                scoreA = scoreA+ 1
@@ -41,8 +43,8 @@ def simOneGame(probA, probB):
                 serving = "B"
 
         else:
-            if random ()< probB:
-                scoreB = ScoroeB +1
+            if random()< probB:
+                scoreB = scoreB +1
 
             else:
                 serving = "A"
